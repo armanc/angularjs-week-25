@@ -1,0 +1,27 @@
+{
+  "name": "week25",
+  "version": "0.0.1",
+  "authors": [
+    "armanc <armands.baris@gmail.com>"
+  ],
+  "description": "weekly project",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "*",
+    "angularjs": "*",
+    "foundation-icons": "*",
+    "jquery": "*",
+    "angular-animate": "~1.2.18",
+    "angular-route": "~1.2.18",
+    "bootstrap": "~3.1.1"
+  }
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+    <head>
+        <title>EGGHEAD / scope vs $scope</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.less">
+
+    </head>
+    <body ng-style="{'background-color': '#'+writeBg() }" ng-controller="writeBgColor">
+        <div ng-controller="kautKas">
+            <nav class="{{active}}" ng-click="$event.preventDefault()">
+
+                <!-- When a link in the menu is clicked, we set the active variable -->
+
+                <a href="#" class="home" ng-click="active = 'home'">Home</a>
+                <a href="#" class="projects" ng-click="active = 'projects'">Projects</a>
+                <a href="#" class="services" ng-click="active = 'services'">Services</a>
+                <a href="#" class="contact" ng-click="active = 'contact'">Contact</a>
+            </nav>
+
+            <!-- ng-show will show an element if the value in the quotes is truthful,
+                     while ng-hide does the opposite. Because the active variable is not set
+                     initially, this will cause the first paragraph to be visible. -->
+
+            <p ng-hide="active">Please click a menu item</p>
+            <p ng-show="active">You chose <b>{{active}}</b></p>
+        </div>
+
+        
+    <div class="row">-----------------------------------</div>
+
+
+        <div ng-controller="ButtonsCtrl">
+            <h4>Single toggle</h4>
+            <pre>{{singleModel}}</pre>
+            <button type="button" class="btn btn-primary" ng-model="singleModel" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+                Single Toggle
+            </button>
+            <h4>Checkbox</h4>
+            <pre>{{checkModel}}</pre>
+            <div class="btn-group">
+                <label class="btn btn-primary" ng-model="checkModel.left" btn-checkbox>Left</label>
+                <label class="btn btn-primary" ng-model="checkModel.middle" btn-checkbox>Middle</label>
+                <label class="btn btn-primary" ng-model="checkModel.right" btn-checkbox>Right</label>
+            </div>
+            <h4>Radio &amp; Uncheckable Radio</h4>
+            <pre>{{radioModel|| 'null'}}</pre>
+            <div class="btn-group">
+                <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'">Left</label>
+                <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'">Middle</label>
+                <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'">Right</label>
+            </div>
+            <div class="btn-group">
+                <label class="btn btn-success" ng-model="radioModel" btn-radio="'Left'" uncheckable>Left</label>
+                <label class="btn btn-success" ng-model="radioModel" btn-radio="'Middle'" uncheckable>Middle</label>
+                <label class="btn btn-success" ng-model="radioModel" btn-radio="'Right'" uncheckable>Right</label>
+            </div>
+        </div>
+        
+        
+        <div class="row">-----------------------------------</div>
+        
+        
+        <div >
+            <input ng-model="writecolor"></input>
+            <p>{{writecolor}}</p>
+            
+        </div>
+        
+        
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="js/js.js"></script>
+    </body>
+</html>
