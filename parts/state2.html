@@ -1,4 +1,8 @@
-<h1>State 2</h1>
-<hr/>
-<a ui-sref="state2.list">Show List</a>
-<div ui-view></div>
+<h3>Change section names</h3>
+<div ui-view>
+<ul>
+  <li ng-repeat="section in sections">    
+      <input type="text" ng-model="{{ section }}">
+  </li>
+</ul>
+</div>

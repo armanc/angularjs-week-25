@@ -1,4 +1,7 @@
-<h1>State 1</h1>
-<hr/>
-<a ui-sref="state1.list">Show List</a>
-<div ui-view></div>
+<h3>List of State 1 Itemss</h3>
+<div ui-view>
+<ul>
+  <li ng-repeat="item in items | limitTo: 2">{{ item }}</li>
+</ul>
+<a ui-sref="state1.list">Show full list</a>
+</div>

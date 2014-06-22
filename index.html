@@ -6,30 +6,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
         <link rel="stylesheet" href="css/style.less">
-
+        <base href="/week25/public/" />
     </head>
-    <body ng-style="{'background-color': '#'+writeBg() }" ng-controller="writeBgColor">
-        <div ng-controller="kautKas">
-            <nav class="{{active}}" ng-click="$event.preventDefault()">
+    <body>
+    <div change-bg-dir>
+        <div>
+            <nav class="{{active}}" ng-click="$event.preventDefault()" ng-controller="sectionCtrl">
 
-                <!-- When a link in the menu is clicked, we set the active variable -->
-
-                <a href="#" class="home" ng-click="active = 'home'">Home</a>
-                <a href="#" class="projects" ng-click="active = 'projects'">Projects</a>
-                <a href="#" class="services" ng-click="active = 'services'">Services</a>
-                <a href="#" class="contact" ng-click="active = 'contact'">Contact</a>
+                <a ui-sref="state1" class="home" ng-click="active = 'home'">Home</a>
+                <a ui-sref="state2" class="projects" ng-click="active = 'projects'">Projects</a>
+                <a ui-sref="state3" class="services" ng-click="active = 'services'">Services</a>
+                <a ui-sref="state4" class="bgcolor" ng-click="active = 'bgcolor'">Background color</a>
             </nav>
 
-            <!-- ng-show will show an element if the value in the quotes is truthful,
-                     while ng-hide does the opposite. Because the active variable is not set
-                     initially, this will cause the first paragraph to be visible. -->
-
             <p ng-hide="active">Please click a menu item</p>
-            <p ng-show="active">You chose <b>{{active}}</b></p>
+            <!-- <p ng-show="active">You chose <b>{{active}}</b></p> -->
+            <div ui-view></div>
         </div>
 
         
-    <div class="row">-----------------------------------</div>
+        
+    
+        
+    <div class="row">-------------------------------------------------------------------------------------------------</div>
 
 
         <div ng-controller="ButtonsCtrl">
@@ -62,28 +61,31 @@
         
         <div class="row">-----------------------------------</div>
         
-        
-        <div >
-            <input ng-model="writecolor"></input>
-            <p>{{writecolor}}</p>
-            
-        </div>
+
       
         
         <div class="row">-----------------------------------</div>
         
-            <div ui-view></div>
-            <!-- We'll also add some navigation: -->
-            <a ui-sref="state1">State 1</a>
-            <a ui-sref="state2">State 2</a>
+            
 
-    
+        <!-- manually added script files -->
         <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="bower_components/angular/angular.js"></script>
-        <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
         <script src="bower_components/angular-route/angular-route.js"></script>
-        <script src="bower_components/angular-animate/angular-animate.js"></script>
         <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/restangular/dist/restangular.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+
+        <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+
+
+        <!-- fa not included -->
+        
+        <!-- bower:js -->
+        <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+        <!-- endbower -->
+  
         <script src="js/js.js"></script>
+    </div>
     </body>
 </html>
