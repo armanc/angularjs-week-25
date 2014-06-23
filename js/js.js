@@ -23,14 +23,28 @@ app.controller("ButtonsCtrl", function ($scope) {
 
     $scope.checkModel = {
     left: false,
-    middle: true,
+    middle: false,
     right: false
   };
 });
 
 app.controller("sectionCtrl", function ($scope) {
- 
-
+    $scope.sections = {    
+        secs:[
+            {sec : 'home',
+             class: 'home',
+             url: 'state1'},
+            {sec : 'sections',
+             class: 'projects',
+             url: 'state2'},
+            {sec : 'hvz',
+             class: 'services',
+             url: 'state3'},
+            {sec : 'background color',
+             class: 'bgcolor',
+             url: 'state4'},
+        ]
+    }
 });
 
 // ng-style="{'background-color': '#'+writeBg() }"
@@ -39,7 +53,7 @@ app.directive('changeBgDir', function() {
       restrict: 'A',
       controller: function ($scope) {
             $scope.writecolor = {
-                color: "#ffffff"
+                color: "#eeddff"
             }
         },
       link: function(scope, elem, attrs) {
@@ -58,10 +72,10 @@ app.directive('changeBgDir', function() {
 app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
  
   // For any unmatched url, redirect to /
-  // $urlRouterProvider.otherwise("/");
+  $urlRouterProvider.otherwise("/");
   
-  //
-  // Now set up the states
+  // $locationProvider.html5Mode(true).hashPrefix('!');
+  
   $stateProvider
     .state('state1', {
       url: "/state1",
@@ -79,14 +93,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       url: "/state2",
       templateUrl: "parts/state2.html",
       controller: function($scope) {
-          $scope.sections = {
-            sec1 : 'yo1',
-            sec2 : 'yo2',
-            sec3 : 'yo3',
-            sec4 : 'yo4',
-            }
-          }
-        
+ 
+
+           
+         
+      }
     })
     .state('state3', {
       url: "/state3",
@@ -98,6 +109,6 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
    
     })   
     
-       $locationProvider.html5Mode(true).hashPrefix('!');
+       
        
 });

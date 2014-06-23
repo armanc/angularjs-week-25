@@ -6,21 +6,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
         <link rel="stylesheet" href="css/style.less">
-        <base href="/week25/public/" />
+        <!-- <base href="/week25/public/" /> -->
     </head>
-    <body>
+    <body ng-cloak>
     <div change-bg-dir>
-        <div>
-            <nav class="{{active}}" ng-click="$event.preventDefault()" ng-controller="sectionCtrl">
+        <div ng-controller="sectionCtrl">
+            <nav class="{{active}}" ng-click="$event.preventDefault()" >
 
-                <a ui-sref="state1" class="home" ng-click="active = 'home'">Home</a>
-                <a ui-sref="state2" class="projects" ng-click="active = 'projects'">Projects</a>
-                <a ui-sref="state3" class="services" ng-click="active = 'services'">Services</a>
-                <a ui-sref="state4" class="bgcolor" ng-click="active = 'bgcolor'">Background color</a>
+                
+                <a ui-sref="{{section.url}}" class="{{section.class}}" ng-click="active = '{{section.class}}'" ng-repeat="section in sections.secs" class="{{section.sec}}">{{section.sec}}</a>
+                    
+                <!--                                                   
+                <a ui-sref="{{section.url}}" class="{{section.class}}" ng-click="active = 'projects'">Projects</a>
+                <a ui-sref="{{section.url}}" class="{{section.class}}" ng-click="active = 'services'">Services</a>
+                <a ui-sref="{{section.url}}" class="{{section.class}}" ng-click="active = 'bgcolor'">Background color</a>
+                -->
             </nav>
 
             <p ng-hide="active">Please click a menu item</p>
-            <!-- <p ng-show="active">You chose <b>{{active}}</b></p> -->
+            <p ng-show="active">You chose <b>{{active}}</b></p> 
             <div ui-view></div>
         </div>
 
