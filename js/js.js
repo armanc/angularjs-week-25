@@ -28,16 +28,16 @@ app.controller("ButtonsCtrl", function ($scope) {
   };
 });
 
-app.controller("sectionCtrl", function ($scope) {
+app.controller("sectionCtrl", function ($scope, $location) {
     $scope.sections = {    
         secs:[
-            {sec : 'home',
-             class: 'home',
+            {sec : 'list',
+             class: 'list',
              url: 'state1'},
-            {sec : 'sections',
+            {sec : 'section names',
              class: 'projects',
              url: 'state2'},
-            {sec : 'hvz',
+            {sec : 'hide navbar',
              class: 'services',
              url: 'state3'},
             {sec : 'background color',
@@ -45,6 +45,9 @@ app.controller("sectionCtrl", function ($scope) {
              url: 'state4'},
         ]
     }
+    $scope.isActive = function(section) {
+        return "/" + section.url === $location.path();
+    } 
 });
 
 // ng-style="{'background-color': '#'+writeBg() }"
