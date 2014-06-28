@@ -4,45 +4,26 @@
         <title>Testing angularjs week 25</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            less = {
+                env: "development"
+            };
+        </script>
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
         <link rel="stylesheet" href="css/style.less">
+        <script src="/js/less-1.7.0.min.js" type="text/javascript"></script>
         <!-- <base href="/week25/public/" /> -->
     </head>
-    <body ng-cloak>
-    <div change-bg-dir>
-        <div ng-controller="sectionCtrl">
-            <nav class="{{active}}" ng-click="$event.preventDefault()" >
-
-                
-                <a ui-sref="{{section.url}}" class="{{section.class}}" ng-class="{active:isActive(section)}" ng-repeat="section in sections.secs" class="{{section.sec}}">{{section.sec}}</a>
-                    
-                <!--                                                   
-                <a ui-sref="{{section.url}}" class="{{section.class}}" ng-click="active = 'projects'">Projects</a>
-                <a ui-sref="{{section.url}}" class="{{section.class}}" ng-click="active = 'services'">Services</a>
-                <a ui-sref="{{section.url}}" class="{{section.class}}" ng-click="active = 'bgcolor'">Background color</a>
-                -->
-            </nav>
-
-            <p ng-hide="active">Please click a menu item</p>
-            <p ng-show="active">You chose <b>{{active}}</b></p> 
-            <div ui-view></div>
-        </div>
-
-        
-        
+    <body change-bg-dir ng-cloak>
     
-        
-    <div class="row">-------------------------------------------------------------------------------------------------</div>
+        <div ng-controller="sectionCtrl">
+           
+            <nav>
+                <a ui-sref="{{section.url}}" class="{{section.class}}" ng-class="{active:isActive(section)}" ng-repeat="section in sections.secs" class="{{section.sec}}">{{section.sec}}</a>
+            </nav>
+       
 
-
-        <div ng-controller="ButtonsCtrl">
-            <h4>Checkbox</h4>
-            <pre>{{checkModel}}</pre>
-            <div class="btn-group">
-                <label class="btn btn-primary" ng-model="checkModel.left" btn-checkbox>Left</label>
-                <label class="btn btn-primary" ng-model="checkModel.middle" btn-checkbox>Middle</label>
-                <label class="btn btn-primary" ng-model="checkModel.right" btn-checkbox>Right</label>
-            </div>
+            <div class="my-ui-view" ui-view></div>
         </div>
         
         <!-- manually added script files -->
@@ -63,6 +44,6 @@
         <!-- endbower -->
   
         <script src="js/js.js"></script>
-    </div>
+    
     </body>
 </html>

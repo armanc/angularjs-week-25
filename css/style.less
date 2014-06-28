@@ -24,21 +24,22 @@ section, footer, header, aside, nav{
 }
 
 /*-------------------------
-	The menu
-@import "style.less";
 --------------------------*/
 
 nav{
 	display:inline-block;
-	margin:60px auto 45px;
-	background-color:#5597b4;
-	box-shadow:0 1px 1px #ccc;
+	margin:0;
+        height:100%;
+	background-color:#778899;
 	border-radius:2px;
+      
+        z-index:100;
+        float:left;
 }
 
 nav a{
-	display:inline-block;
-	padding: 18px 30px;
+	display:list-item;
+	padding: 14px 25px;
 	color:#fff !important;
 	font-weight:bold;
 	font-size:16px;
@@ -47,9 +48,9 @@ nav a{
 	text-transform: uppercase;
 	background-color:transparent;
 
-	-webkit-transition:background-color 0.25s;
-	-moz-transition:background-color 0.25s;
-	transition:background-color 0.25s;
+	-webkit-transition:background-color 0.33s;
+	-moz-transition:background-color 0.33s;
+	transition:background-color 0.33s;
 }
 
 nav a:first-child{
@@ -61,7 +62,10 @@ nav a:last-child{
 }
 
 .active {
-	background-color:#e35885;
+	background-color:#abcaba;
+        webkit-transition:background-color 0.33s;
+	-moz-transition:background-color 0.33s;
+	transition:background-color 0.33s;
 }
 
 p{
@@ -82,3 +86,26 @@ p b{
 
 /* bootstrap-ui fix for angular href attribute */
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+/* photolist */
+
+.photolist {
+        list-style-type:none;
+}
+.photolist li {
+        display:inline-block;
+}
+.photolist li img {
+       padding:10px;
+}
+
+.my-ui-view {
+    overflow:hidden;
+    padding:20px;
+}
+
+
+@media (max-width: @screen-xs-max) {}
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {  }
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {  }
+@media (min-width: @screen-lg-min) {  }

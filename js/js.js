@@ -1,25 +1,21 @@
 var app = angular.module('myApp', ['ui.bootstrap', 'ui.router']);
 
-//app.config(function($routeProvider) {
-//    $routeProvider
-//        .when('/',
-//        {
-//            templateUrl: "app.html",
-//            controller: "AppCtrl"
-//        })
-//        .when('/pizza',
-//        {
-//            template:"Yumm!!"
-//        })
-//        .otherwise({
-//            template:"THis doesnt exist"
-//        })
-//});
-
 app.controller("ButtonsCtrl", function ($scope) {
-    $scope.singleModel = 1;
-
-    $scope.radioModel = 'Middle';
+    $scope.btntxt = "Do it!";
+    $scope.menuVisible = 1;
+    
+    $scope.yeah = function() {
+        if ($scope.menuVisible === 0) {
+         
+             $('nav').show();
+             $scope.btntxt = "Do it!";
+        } else {
+      
+            $('nav').hide();
+            $scope.btntxt = "Give it back!";
+        }
+    }
+    
 
     $scope.checkModel = {
     left: false,
@@ -31,7 +27,7 @@ app.controller("ButtonsCtrl", function ($scope) {
 app.controller("sectionCtrl", function ($scope, $location) {
     $scope.sections = {    
         secs:[
-            {sec : 'list',
+            {sec : 'view pictures',
              class: 'list',
              url: 'state1'},
             {sec : 'section names',
@@ -40,14 +36,18 @@ app.controller("sectionCtrl", function ($scope, $location) {
             {sec : 'hide navbar',
              class: 'services',
              url: 'state3'},
-            {sec : 'background color',
+            {sec : 'change bg color',
              class: 'bgcolor',
              url: 'state4'},
+            {sec : 'dark room',
+             class: 'room',
+             url: 'state5'},
         ]
     }
     $scope.isActive = function(section) {
         return "/" + section.url === $location.path();
     } 
+    
 });
 
 // ng-style="{'background-color': '#'+writeBg() }"
@@ -84,7 +84,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       url: "/state1",
       templateUrl: "parts/state1.html",
       controller: function($scope) {
-        $scope.items = ["A", "List", "Of", "Items", "!"];
+        $scope.items = ["100","200", "300", "400", "500", "600", "700", "800"];
       }
     })
     .state('state1.list', {
@@ -111,6 +111,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: "parts/state4.html",
    
     })   
+    .state('state5', {
+      url: "/state5",
+      templateUrl: "parts/state5.html",
+   
+    })  
     
        
        

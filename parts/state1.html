@@ -1,7 +1,15 @@
-<h3>List of State 1 Itemsss</h3>
+<h3>List of State 1 Items</h3>
 <div ui-view>
-<ul>
-  <li ng-repeat="item in items | limitTo: 2">{{ item }}</li>
-</ul>
-<a ui-sref="state1.list">Show full list</a>
+    <div class="fluid-ontainer">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="photolist">
+                    <li ng-repeat="item in items | limitTo:1">
+                        <img ng-src="img/{{ item }}.jpeg"></img>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+<a ui-sref="state1.list">Show full gallery</a>
 </div>

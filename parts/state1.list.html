@@ -1,5 +1,12 @@
 <!-- partials/state1.list.html -->
-
-<ul>
-  <li ng-repeat="item in items">{{ item }}</li>
-</ul>
+<div class="fluid-container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <ul class="photolist">
+                <li ng-repeat="item in items">
+                    <img ng-src="img/{{ item }}.jpeg"></img>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
