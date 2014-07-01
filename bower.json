@@ -24,6 +24,7 @@
     "angular-route": "~1.2.18",
     "bootstrap": "~3.1.1",
     "angular-ui-router": "~0.2.10",
-    "restangular": "~1.4.0"
+    "restangular": "~1.4.0",
+    "less.js": "~1.7.3"
   }
 }
