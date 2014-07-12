@@ -4,7 +4,7 @@ app.controller("ButtonsCtrl", function ($scope) {
     $scope.btntxt = "Do it!";
     $scope.menuVisible = 1;
     
-    $scope.yeah = function() {
+    $scope.menuToggle = function() {
         if ($scope.menuVisible === 0) {
          
              $('nav').show();
@@ -15,13 +15,7 @@ app.controller("ButtonsCtrl", function ($scope) {
             $scope.btntxt = "Give it back!";
         }
     }
-    
 
-    $scope.checkModel = {
-    left: false,
-    middle: false,
-    right: false
-  };
 });
 
 app.controller("sectionCtrl", function ($scope, $location) {
@@ -44,6 +38,29 @@ app.controller("sectionCtrl", function ($scope, $location) {
              url: 'state5'},
         ]
     }
+    $scope.emptySections = function() {
+        for (x=0;x<$scope.sections.secs.length;x++) {
+            $scope.sections.secs[x].sec = '';
+        }
+    }  
+    $scope.resetSections = function() {
+        $scope.sections = { 
+            secs:[
+                {sec : 'view pictures'},
+                {sec : 'section names'},
+                {sec : 'hide navbar'},
+                {sec : 'change bg color'},
+                {sec : 'dark room'},
+            ]
+        }
+    } 
+
+    $scope.checkModel = {
+        left: false,
+        middle: false,
+        right: false
+    }
+    
     $scope.isActive = function(section) {
         return "/" + section.url === $location.path();
     } 
